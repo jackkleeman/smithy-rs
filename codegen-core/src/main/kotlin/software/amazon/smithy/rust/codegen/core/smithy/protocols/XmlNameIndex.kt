@@ -32,7 +32,7 @@ class XmlNameIndex(private val model: Model) : KnowledgeIndex {
     fun payloadShapeName(member: MemberShape): String {
         val payloadShape = model.expectShape(member.target)
         val xmlRename: XmlNameTrait? = member.getTrait() ?: payloadShape.getTrait()
-        return xmlRename?.value ?: payloadShape.id.name
+        return xmlRename?.value ?: member.memberName
     }
 
     /**
